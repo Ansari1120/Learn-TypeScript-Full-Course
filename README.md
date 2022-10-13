@@ -1,5 +1,6 @@
 # LearnTypeScript-zero-To-hero
 this is the basis of typescript needed to know must a step by step chapter vice codes from josh goldberg book Typescript.
+just comment out the code and try it , practice accordingly
 
 -> PREREQUISITE
 node js installed 
