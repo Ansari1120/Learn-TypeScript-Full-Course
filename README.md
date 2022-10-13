@@ -9,16 +9,16 @@ Setting up Typscript Enviroment:
 
 npm i -g typescript 
 check typescript : 
-tsc -v  (cmd check if typescript is installed ?)
+tsc -v  (cmd check if typescript is installed ?) , 
 install packages for a project to run ts :
-npx tsc –init
+npx tsc –init ,
 to compile ts file : 
-tsc first.ts (run on cmd)
+tsc first.ts (run on cmd) , 
 then run js compiler : 
 node first.js
 
 
-//Still have a problem contact me then.
+//Still have a problem contact leave a on my whatsapp 03172101966
 
 
 
