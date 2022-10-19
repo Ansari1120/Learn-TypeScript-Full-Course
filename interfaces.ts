@@ -174,46 +174,142 @@
  
 //numeric index interface
  
-interface calc {
-    [i:string]:number|Function;
-    valFirst:number;
-    valTwo:number;
-    add():number;
-    sub():number;
-    division:(a:number,b:number)=>number;
-}
+// interface calc {
+//     [i:string]:number|Function;
+//     valFirst:number;
+//     valTwo:number;
+//     add():number;
+//     sub():number;
+//     division:(a:number,b:number)=>number;
+// }
  
-let calculator2 : calc = {
-    valFirst:0,  //value initialized
-    valTwo:0,     //value initialized
-    add(){
-        if(typeof this.valFirst === 'number' && typeof this.valTwo === 'number'){
-        return this.valFirst+this.valTwo;
-        }
-        else {
-            return 0;
-        }
-    },
-    sub() {
-                if(typeof this.valFirst === 'number' && typeof this.valTwo === 'number'){
-        return this.valFirst-this.valTwo;
-        }
-        else{
-            return 0;
-        }
-    },
-    division: (a,b) => a/b //function PropertyDecorator
-}
+// let calculator2 : calc = {
+//     valFirst:0,  //value initialized
+//     valTwo:0,     //value initialized
+//     add(){
+//         if(typeof this.valFirst === 'number' && typeof this.valTwo === 'number'){
+//         return this.valFirst+this.valTwo;
+//         }
+//         else {
+//             return 0;
+//         }
+//     },
+//     sub() {
+//                 if(typeof this.valFirst === 'number' && typeof this.valTwo === 'number'){
+//         return this.valFirst-this.valTwo;
+//         }
+//         else{
+//             return 0;
+//         }
+//     },
+//     division: (a,b) => a/b //function PropertyDecorator
+// }
  
-calculator2.valFirst=45;
-calculator2.valTwo=78;
+// calculator2.valFirst=45;
+// calculator2.valTwo=78;
  
-//creating a method outide of interface we can optionally do this
-calculator2.multiply = (a:number,b:number) => a*b;
-//we can add dynamic a method and do more calculation applied on predefined earlier method
-calculator2.division = (a,b)=>a+b+200;
-console.log(calculator2.division);
-console.log(calculator2.multiply(6,7));
-console.log(calculator2.add(),calculator2.division(44,4),calculator2.sub());
- 
+// //creating a method outide of interface we can optionally do this
+// calculator2.multiply = (a:number,b:number) => a*b;
+// //we can add dynamic a method and do more calculation applied on predefined earlier method
+// calculator2.division = (a,b)=>a+b+200;
+// console.log(calculator2.division);
+// console.log(calculator2.multiply(6,7));
+// console.log(calculator2.add(),calculator2.division(44,4),calculator2.sub());l
+//interface extension
+// interface animals{
+//     name?:String,
+//     age:number        
+// }
+// interface location{
+//     area:string
+// }
+// interface new_thing extends animals,location{
+//     bread:string
+// }
+// let a_vari = {
+//     age:56,
+//     area:56+"sq yrds",
+//     bread:"Omiphorban"
+// }
 
+
+//interface merging
+// interface Merged {
+//     fromFirst: string;
+//     }
+//     interface Merged {
+//     fromSecond: number;
+//     }
+    // Equivalent to:
+    // interface Merged {
+    // fromFirst: string;
+    // fromSecond: number;
+    // }
+
+
+//member naming conflict
+// interface MergedProperties {
+// same: (input: boolean) => string;
+// different: (input: string) => string;
+//         }
+// interface MergedProperties {
+// same: (input: boolean) => string; // Ok can be reuse above same variable string ok
+// different: (input: number) => string; //cant be use since the variable conflict comes into action
+// //different before is string , different variable after is number     
+// }
+
+//extending multiple interfaces {
+interface GivesNumber {
+ giveNumber(): number{
+    return "first use interface";
+ };
+ }
+ interface GivesString {
+ giveString(): string{
+    return "Second use interface";
+ };
+ }
+ interface GivesBothAndEither extends GivesNumber, GivesString { //fetching givesnumber and givesstring function out there
+ giveEither(
+ ): number | string {
+    return 23+"first use interface",
+ };
+}
+function useGivesBoth(instance: GivesBothAndEither): void { //taking interfaces fetched function to be used
+ instance.giveEither(); // Type: number | string
+ instance.giveNumber(); // Type: number
+ instance.giveString(); // Type: string
+}
+//nested interface
+interface novel {
+   author : {
+       name : string;
+   };
+   background : background;
+}
+interface background{ //adding more types of an author in the field setting
+   place_of_birth : string;
+   first_publish_year : number;
+}
+let a_novel : novel;
+a_novel = {
+author:{
+   name : "samoa",
+},
+background:{
+place_of_birth : "1882",
+first_publish_year : 12341,
+},
+};
+console.log(a_novel.background.place_of_birth);
+
+//Overrident property
+interface WithNullableName {
+name: string | null;
+}
+interface WithNonNullableName extends WithNullableName {
+name: string;
+}
+interface WithjustnullableName extends WithNullableName {
+name: null;
+}
