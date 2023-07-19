@@ -56,69 +56,69 @@
 //class method 
 //class method
  
-class Greet { 
-    do_something(num : number , num1:number){ //method
-        let sum = num+num1;
-        console.log(`a number ${sum} got remainder !`);
-        return sum;
-    }
-}
-let obj = new Greet();
-obj.do_something(7,15);
+// class Greet { 
+//     do_something(num : number , num1:number){ //method
+//         let sum = num+num1;
+//         console.log(`a number ${sum} got remainder !`);
+//         return sum;
+//     }
+// }
+// let obj = new Greet();
+// obj.do_something(7,15);
  
  
  
  
 //class property
  
-class Tour {
-    destination : string
-    constructor(destination:string){
-        this.destination = destination;
-    }
+// class Tour {
+//     destination : string
+//     constructor(destination:string){
+//         this.destination = destination;
+//     }
  
-}
-let obj1 = new Tour("maldives");
-obj1.destination
+// }
+// let obj1 = new Tour("maldives");
+// obj1.destination
  
 //function property
  
-class Func_property{
-    taskes_parameters = (input:boolean) => input? "yes" : "no";
-}
-const choose_either = new Func_property();
-choose_either.taskes_parameters(true) //say either true or false
+// class Func_property{
+//     taskes_parameters = (input:boolean) => input? "yes" : "no";
+// }
+// const choose_either = new Func_property();
+// choose_either.taskes_parameters(true) //say either true or false
 
 //strict checking
  
-class Check{
-    immediate = 0;
-    earlier : string;
-    post : number|undefined;
-    pre : number;  // shows an error since the value coulb be undefined/null
-    constructor(){
-        this.earlier = "nothing"; //assgined there if not above when writting property
-    }
-}
+// class Check{
+//     immediate = 0;
+//     earlier : string;
+//     post : number|undefined;
+//     pre : number;  // shows an error since the value coulb be undefined/null
+//     constructor(){
+//         this.earlier = "nothing"; //assgined there if not above when writting property
+//     }
+// }
 
 
-Example 02 : 
+//Example 02 : 
 //exclamation option checking
  
  
-class ActivitiesQueue {
-pending!: string[]; // Ok  // since the property dont need to be explicity undefined we make it optional through exclamation !
-initialize(pending: string[]) {
-this.pending = pending;
-}
-next() {
-return this.pending.pop();
-}
-}
-const activities = new ActivitiesQueue();
+// class ActivitiesQueue {
+// pending!: string[]; // Ok  // since the property dont need to be explicity undefined we make it optional through exclamation !
+// initialize(pending: string[]) {
+// this.pending = pending;
+// }
+// next() {
+// return this.pending.pop();
+// }
+// }
+// const activities = new ActivitiesQueue();
  
-activities.initialize(['eat', 'sleep', 'learn'])
-activities.next();
+// activities.initialize(['eat', 'sleep', 'learn'])
+// activities.next();
 
 
 
@@ -126,7 +126,7 @@ activities.next();
 // optional property
  
  
-class ActivitiesQueue {
+class Queue {
 pending?: string[]; // Ok  either we can use this property when needed ro let it be remain unused.
 adding!: string[];
 initialize(pending: string[]) {
@@ -136,14 +136,12 @@ next() {
 return this.adding.pop();
 }
 }
-const activities = new ActivitiesQueue();
+let obj2 = new Queue();
  
-activities.initialize(['eat', 'sleep', 'learn'])
-activities.next();
+obj2.initialize(['eat', 'sleep', 'learn'])
+obj2.next();
 
 // readonly property
- 
- 
 class A_quote{
     readonly quote :string;
  
@@ -153,7 +151,7 @@ class A_quote{
 }
 var see = new A_quote("friend in need is a firend indeed");
  
-see.quote="wont make changes" //since the property is readonly.
+// see.quote="wont make changes" //since the property is readonly.
  
  
  
