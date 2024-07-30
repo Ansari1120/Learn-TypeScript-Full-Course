@@ -71,22 +71,22 @@
  
 //functions and methods example 02 :
  
-// interface calc {
-//     add(a:number,b:number):number;
-//     sub(a:number,b:number):number;
-//     division:(a:number,b:number)=>number;
-// }
+interface calc {
+    add(a:number,b:number):number;
+    sub(a:number,b:number):number;
+    division:(a:number,b:number)=>number;
+}
  
-// let calculator : calc = {
-//     add(a,b){
-//         return a+b;
-//     },
-//     sub(a,b) {
-//         return a-b;
-//     },
-//     division: (a,b) => a/b
-// }
-// console.log(calculator.add(4,5),calculator.sub(78,44),calculator.division(33,3));
+let calculator : calc = {
+    add(a,b){
+        return a+b;
+    },
+    sub(a,b) {
+        return a-b;
+    },
+    division: (a,b) => a/b
+}
+console.log(calculator.add(4,5),calculator.sub(78,44),calculator.division(33,3));
  
 //call signature
 // interface FunctionWithCount {
@@ -259,57 +259,57 @@
 // }
 
 //extending multiple interfaces {
-interface GivesNumber {
- giveNumber(): number{
-    return "first use interface";
- };
- }
- interface GivesString {
- giveString(): string{
-    return "Second use interface";
- };
- }
- interface GivesBothAndEither extends GivesNumber, GivesString { //fetching givesnumber and givesstring function out there
- giveEither(
- ): number | string {
-    return 23+"first use interface",
- };
-}
-function useGivesBoth(instance: GivesBothAndEither): void { //taking interfaces fetched function to be used
- instance.giveEither(); // Type: number | string
- instance.giveNumber(); // Type: number
- instance.giveString(); // Type: string
-}
-//nested interface
-interface novel {
-   author : {
-       name : string;
-   };
-   background : background;
-}
-interface background{ //adding more types of an author in the field setting
-   place_of_birth : string;
-   first_publish_year : number;
-}
-let a_novel : novel;
-a_novel = {
-author:{
-   name : "samoa",
-},
-background:{
-place_of_birth : "1882",
-first_publish_year : 12341,
-},
-};
-console.log(a_novel.background.place_of_birth);
+// interface GivesNumber {
+//  giveNumber(): number{
+//     return "first use interface";
+//  };
+//  }
+//  interface GivesString {
+//  giveString(): string{
+//     return "Second use interface";
+//  };
+//  }
+//  interface GivesBothAndEither extends GivesNumber, GivesString { //fetching givesnumber and givesstring function out there
+//  giveEither(
+//  ): number | string {
+//     return 23+"first use interface",
+//  };
+// }
+// function useGivesBoth(instance: GivesBothAndEither): void { //taking interfaces fetched function to be used
+//  instance.giveEither(); // Type: number | string
+//  instance.giveNumber(); // Type: number
+//  instance.giveString(); // Type: string
+// }
+// //nested interface
+// interface novel {
+//    author : {
+//        name : string;
+//    };
+//    background : background;
+// }
+// interface background{ //adding more types of an author in the field setting
+//    place_of_birth : string;
+//    first_publish_year : number;
+// }
+// let a_novel : novel;
+// a_novel = {
+// author:{
+//    name : "samoa",
+// },
+// background:{
+// place_of_birth : "1882",
+// first_publish_year : 12341,
+// },
+// };
+// console.log(a_novel.background.place_of_birth);
 
-//Overrident property
-interface WithNullableName {
-name: string | null;
-}
-interface WithNonNullableName extends WithNullableName {
-name: string;
-}
-interface WithjustnullableName extends WithNullableName {
-name: null;
-}
+// //Overrident property
+// interface WithNullableName {
+// name: string | null;
+// }
+// interface WithNonNullableName extends WithNullableName {
+// name: string;
+// }
+// interface WithjustnullableName extends WithNullableName {
+// name: null;
+// }
